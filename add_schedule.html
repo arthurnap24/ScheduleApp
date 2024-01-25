@@ -65,7 +65,7 @@
 <script>
     function isNameValid() {
         var fullName = document.getElementById("fname").value;
-        return fullName === "Arthur Napolitano" || fullName === "Venessa Anania";
+        return fullName === "John Doe" || fullName === "Jane Doe";
     }
 
     function isApartmentNumValid() {
@@ -75,7 +75,7 @@
 
     function isEmailValid() {
         var email = document.getElementById("email").value;
-        return email === "arthurnap24@gmail.com" || email === "venessa.anania@gmail.com";
+        return email === "johndoe@gmail.com" || email === "janedoe@gmail.com";
     }
 
     function DEMO_isDateTimeReserved() {
@@ -92,7 +92,6 @@
 
     function isTheatreAvailableAtDateTime() {
         if (DEMO_isDateTimeReserved() || isDateTimeEmpty()) {
-            console.log("isTheatreAvailableAtDateTime: false")
             return false;
         }
         return true;
