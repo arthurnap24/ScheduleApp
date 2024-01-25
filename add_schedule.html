@@ -4,34 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Schedule Submitted!</title>
-    <script>
-        function alert() {
-            alert("Schedule Submitted!");
-        }
-    </script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+    </style>
+    <title>Sire Wellington Movie Theatre</title>
 </head>
 
 <body>
 
-<h1>Sire Wellington Movie Theatre</h1>
+<img class="w3-image" src="./SireTheatre.jpg" alt="The Hotel" style="min-width:1000px" width="1500" height="800">
+<div class="w3-display-left w3-padding w3-col l6 m8">
 
-<label for="fname">Name:</label>
-<input type="text" id="fname" name="fname"><br><br>
+<div class="w3-container w3-white w3-padding-16">
+<div class="w3-container">
+    <h2><i class="fa w3-margin-right"></i>Sire Wellington Movie Theatre</h2>
+</div>
 
-<label for="apt">Apartment #:</label>
-<input type="text" id="apt" name="apt"><br><br>
+<div class="w3-row-padding" style="margin:0 -16px;">
+    <div class="w3-full w3-margin-bottom">
+        <label for="fname">Name:</label>
+        <input class="w3-input w3-border"type="text" id="fname" name="fname">
+    </div>
+    <div class="w3-full w3-margin-bottom">
+        <label for="apt">Apartment #:</label>
+        <input class="w3-input w3-border" type="text" id="apt" name="apt">
+    </div>
+    <div class="w3-full w3-margin-bottom">
+        <label for="email">Email:</label>
+        <input class="w3-input w3-border" type="email" id="email" name="email"><br><br>
+    </div>
+    <div class="w3-full w3-margin-bottom"></div>
+        <label for="time">Date:</label>
+        <input class="w3-input w3-border" type="date" id="date" name="date"><br><br>
+        
+    </div>
+    <div class="w3-half w3-margin-bottom">
+        <label for="date">From:</label>
+        <input class="w3-input w3-border" type="date" id="date" name="date"><br><br>
+    </div>
+    <div class="w3-half w3-margin-bottom">
+        <label for="date">To:</label>
+        <input class="w3-input w3-border" type="time" id="time" name="time"><br><br>
+    </div>
+    <div class="w3-half w3-margin-bottom">
+        <button class="w3-button w3-dark-grey" onclick="submit()">Submit</button>
+    </div>
+    <div class="w3-half w3-margin-bottom">
+        <p id="status"></p>
+    </div>
+    </div>
+</div>
 
-<label for="email">Email:</label>
-<input type="email" id="email" name="email"><br><br>
-
-<label for="date">Reservation Date:</label>
-<input type="date" id="date" name="date"><br><br>
-
-<label for="time">Time:</label>
-<input type="time" id="time" name="time"><br><br>
-
-<button onclick="alert()">Submit</button>
+</div>
+<script>
+    function submit() {
+        document.getElementById("status").innerHTML = "Schedule Submitted!";
+    }
+</script>
 
 </body>
 </html>
