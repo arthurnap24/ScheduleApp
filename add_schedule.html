@@ -30,24 +30,24 @@
     </div>
     <div class="w3-full w3-margin-bottom">
         <label for="apt">Apartment #:</label>
-        <input class="w3-input w3-border" type="text" id="apt" name="apt">
+        <input class="w3-input w3-border" type="number" id="apt" name="apt">
     </div>
     <div class="w3-full w3-margin-bottom">
         <label for="email">Email:</label>
         <input class="w3-input w3-border" type="email" id="email" name="email"><br><br>
     </div>
     <div class="w3-full w3-margin-bottom"></div>
-        <label for="time">Date:</label>
+        <label for="date">Date:</label>
         <input class="w3-input w3-border" type="date" id="date" name="date"><br><br>
         
     </div>
     <div class="w3-half w3-margin-bottom">
-        <label for="date">From:</label>
-        <input class="w3-input w3-border" type="date" id="date" name="date"><br><br>
+        <label for="timefrom">From:</label>
+        <input class="w3-input w3-border" type="time" id="timefrom" name="from"><br><br>
     </div>
     <div class="w3-half w3-margin-bottom">
-        <label for="date">To:</label>
-        <input class="w3-input w3-border" type="time" id="time" name="time"><br><br>
+        <label for="timeto">To:</label>
+        <input class="w3-input w3-border" type="time" id="timeto" name="to"><br><br>
     </div>
     <div class="w3-half w3-margin-bottom">
         <button class="w3-button w3-dark-grey" onclick="submit()">Submit</button>
@@ -63,7 +63,66 @@
 
 </div>
 <script>
+    function isNameValid() {
+        var fullName = document.getElementById("fname").value;
+        return fullName === "Arthur Napolitano" || fullName === "Venessa Anania";
+    }
+
+    function isApartmentNumValid() {
+        var aptNum = document.getElementById("apt").value;
+        return aptNum >= 1103 && aptNum <= 3103;
+    }
+
+    function isEmailValid() {
+        var email = document.getElementById("email").value;
+        return email === "arthurnap24@gmail.com" || email === "venessa.anania@gmail.com";
+    }
+
+    function DEMO_isDateTimeReserved() {
+        return document.getElementById("date").value === "2024-01-27" 
+            && document.getElementById("timefrom").value === "12:00"
+            && document.getElementById("timeto").value === "13:00";
+    }
+
+    function isDateTimeEmpty() {
+        return document.getElementById("date").value === "" 
+            || document.getElementById("timefrom").value === ""
+            || document.getElementById("timeto").value === "";
+    }
+
+    function isTheatreAvailableAtDateTime() {
+        if (DEMO_isDateTimeReserved() || isDateTimeEmpty()) {
+            console.log("isTheatreAvailableAtDateTime: false")
+            return false;
+        }
+        return true;
+    }
+
     function submit() {
+        verifyFields();
+    }
+    
+    function verifyFields() {
+        if (!isNameValid()) {
+            document.getElementById("status").innerHTML = "Please enter a valid name.";
+            return;
+        }
+
+        if (!isApartmentNumValid()) {
+            document.getElementById("status").innerHTML = "Please enter a valid apartment number.";
+            return;
+        }
+
+        if (!isEmailValid()) {
+            document.getElementById("status").innerHTML = "Please enter a valid email.";
+            return;
+        }
+
+        if (!isTheatreAvailableAtDateTime()) {
+            document.getElementById("status").innerHTML = "The theatre is not available at this time.";
+            return;
+        }
+
         document.getElementById("status").innerHTML = "Schedule Submitted!";
     }
 </script>
